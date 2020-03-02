@@ -12,24 +12,29 @@ namespace DotNetChatApp.Model.Context.ModelCreatings.Users
     {
         public static void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // table users
             GetBuilder(modelBuilder).ToTable("users");
-            
+            // primary key 
             GetBuilder(modelBuilder).HasKey(u => u.Id);
+            
             GetBuilder(modelBuilder).Property(u => u.Id)
                 .HasColumnName("Id")
                 .HasColumnType<long>("bigint")
                 .IsRequired();
 
+            // email column
             GetBuilder(modelBuilder).Property(u => u.Email)
                 .HasColumnName("email")
                 .HasColumnType<string>("varchar(128)")
                 .IsRequired();
-
+            
+            // password column
             GetBuilder(modelBuilder).Property(u => u.Password)
                 .HasColumnName("password")
                 .HasColumnType<string>("varchar(255)")
                 .IsRequired();
-
+            
+            // this is to be ignored / transient***
             GetBuilder(modelBuilder).Ignore(u => u.Message);
         }
 

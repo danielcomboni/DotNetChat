@@ -27,13 +27,24 @@ namespace DotNetChatApp.Model.Repository.Messages
             
         }
 
+        private  async Task<ActionResult<User>> FindUserByIdAsync(long id)
+        {
+            return await _contextUser.FindById(id);
+        }
+
         public async Task<ActionResult<Message>> Add(Message entityObject)
         {
 
             entityObject.TheDateAndTime = DateUtils.GetCurrentDateTime();
+            ActionResult<User> aRecipient = await FindUserByIdAsync(entityObject.RecipientId);
+            ActionResult<User> aSender= await FindUserByIdAsync(entityObject.SenderId);
 
             _context.Messages.Add(entityObject);
             await _context.SaveChangesAsync();
+
+            entityObject.Sender = aSender.Value;
+            entityObject.Recipient = aRecipient.Value;
+
             return CreatedAtAction(nameof(FindById), new { id = entityObject.Id }, entityObject);
 
         }
@@ -41,8 +52,6 @@ namespace DotNetChatApp.Model.Repository.Messages
         public async Task<ActionResult<IEnumerable<Message>>> FindAll()
         {
             List<Message> messages = await _context.Messages.ToListAsync();
-
-
 
             foreach (Message message in messages)
             {

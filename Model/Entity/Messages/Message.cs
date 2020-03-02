@@ -11,14 +11,10 @@ namespace DotNetChatApp.Model.Entity.Messages
     public class Message
     {
         public long Id { get; set; }
-        //public long SenderId { get; set; }
-        //[Required]
-        //[ForeignKey("SenderId")]
+        
         public long SenderId { get; set; }
         public virtual User Sender { get; set; }
-        //public long RecipientId { get; set; }
-        //[Required]
-        //[ForeignKey("RecipientId")]
+        
         public long RecipientId { get; set; }
         public virtual User Recipient { get; set; }
         public string TheMessage { get; set; }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetChatApp.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    [Migration("20200302063354_UserNMessage")]
+    [Migration("20200302073148_UserNMessage")]
     partial class UserNMessage
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
