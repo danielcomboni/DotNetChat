@@ -10,10 +10,10 @@ namespace DotNetChatApp.Model.Repository
     {
         public Task<ActionResult<TEntity>> Add(TEntity entityObject);
         public Task<ActionResult<IEnumerable<TEntity>>> FindAll();
-        public Task<ActionResult<TEntity>> FindById(int id);
-        public Task<ActionResult<TEntity>> Remove(int id);
-        public bool TEntityExists(int id);
-        public Task<ActionResult<TEntity>> Update(int id, TEntity entityObject);
+        public Task<ActionResult<TEntity>> FindById(long id);
+        public Task<ActionResult<TEntity>> Remove(long id);
+        public bool TEntityExists(long id);
+        public Task<ActionResult<TEntity>> Update(long id, TEntity entityObject);
 
     }
 }

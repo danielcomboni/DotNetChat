@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotNetChatApp.Model.Context;
+using DotNetChatApp.Model.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,7 @@ namespace DotNetChatApp
         {
             services.AddDbContextPool<ChatDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DotNetChatAppDBConnection")));
             services.AddControllers();
+            RepositoryInjections.InjectedRepositories(services);
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

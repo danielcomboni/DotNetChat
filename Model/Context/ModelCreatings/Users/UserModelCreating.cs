@@ -29,6 +29,8 @@ namespace DotNetChatApp.Model.Context.ModelCreatings.Users
                 .HasColumnName("password")
                 .HasColumnType<string>("varchar(255)")
                 .IsRequired();
+
+            GetBuilder(modelBuilder).Ignore(u => u.Message);
         }
 
         private static EntityTypeBuilder<User> GetBuilder(ModelBuilder modelBuilder)
