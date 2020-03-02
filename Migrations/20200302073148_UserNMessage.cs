@@ -52,13 +52,13 @@ namespace DotNetChatApp.Migrations
                 name: "IX_messages_RecipientId",
                 table: "messages",
                 column: "RecipientId",
-                unique: true);
+                unique: false);
 
             migrationBuilder.CreateIndex(
                 name: "IX_messages_SenderId",
                 table: "messages",
                 column: "SenderId",
-                unique: true);
+                unique: false);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

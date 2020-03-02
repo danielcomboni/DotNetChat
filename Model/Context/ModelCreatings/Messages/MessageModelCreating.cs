@@ -24,37 +24,25 @@ namespace DotNetChatApp.Model.Context.ModelCreatings.Messages
                 .HasColumnName("Id")
                 .HasColumnType<long>("bigint")
                 .IsRequired();
-
-            // foreign key of Sender Id (users table)
-            //GetBuilder(modelBuilder).HasOne(m => m.Sender)
-            //    .WithOne()
-            //    .HasForeignKey<User>(u => u.Id)
-            //    .IsRequired();
-
-            // foreign key of Recipient Id (users table)
-            //GetBuilder(modelBuilder).HasOne(m => m.Recipient)
-            //    .WithOne()
-            //    .HasForeignKey<User>(u => u.Id)
-            //    .IsRequired();
-
+            // sender id foreign key
             GetBuilder(modelBuilder)
                 .HasOne(m => m.Sender)
                 .WithOne()
                 .HasForeignKey<Message>(m => m.SenderId)
                 .OnDelete(DeleteBehavior.NoAction);
-
+            // recipient id foreign key
             GetBuilder(modelBuilder)
                 .HasOne(m => m.Recipient)
                 .WithOne()
                 .HasForeignKey<Message>(m => m.RecipientId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasPrincipalKey<User>(u => u.Id);
-
+            // the message 
             GetBuilder(modelBuilder).Property(m => m.TheMessage)
                 .HasColumnName("the_message")
                 .HasColumnType<string>("text")
                 .IsRequired();
-
+            // date and time of sending the message
             GetBuilder(modelBuilder).Property(m => m.TheDateAndTime)
                 .HasColumnName("date_time")
                 .HasColumnType("datetime DEFAULT GETDATE()")
