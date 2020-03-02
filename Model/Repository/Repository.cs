@@ -19,22 +19,22 @@ namespace DotNetChatApp.Model.Repository
             throw new NotImplementedException();
         }
 
-        public virtual Task<ActionResult<TEntity>> FindById(int id)
+        public virtual Task<ActionResult<TEntity>> FindById(long id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual Task<ActionResult<TEntity>> Remove(int id)
+        public virtual Task<ActionResult<TEntity>> Remove(long id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual bool TEntityExists(int id)
+        public virtual bool TEntityExists(long id)
         {
             throw new NotImplementedException();
         }
 
-        public virtual Task<ActionResult<TEntity>> Update(int id, TEntity entityObject)
+        public virtual Task<ActionResult<TEntity>> Update(long id, TEntity entityObject)
         {
             throw new NotImplementedException();
         }

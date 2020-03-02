@@ -1,4 +1,6 @@
-﻿using DotNetChatApp.Model.Context.ModelCreatings.Users;
+﻿using DotNetChatApp.Model.Context.ModelCreatings.Messages;
+using DotNetChatApp.Model.Context.ModelCreatings.Users;
+using DotNetChatApp.Model.Entity.Messages;
 using DotNetChatApp.Model.Entity.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,12 +17,14 @@ namespace DotNetChatApp.Model.Context
 
         }
 
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
             UserModelCreating.OnModelCreating(modelBuilder);
+            MessageModelCreating.OnModelCreating(modelBuilder);
         }
 
     }

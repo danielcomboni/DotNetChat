@@ -5,12 +5,45 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200301151833_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301151833_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301155508_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301155508_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301160205_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301160205_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301172804_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301172804_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301173146_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301173146_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301173323_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301173323_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301173539_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301173539_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301173830_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301173830_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301174131_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301174131_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301174440_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301174440_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301174634_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301174634_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301175855_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301175855_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301180140_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301180140_UserAndMessage.Designer.cs" />
+    <Compile Remove="Migrations\20200301221732_UserAndMessage.cs" />
+    <Compile Remove="Migrations\20200301221732_UserAndMessage.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
