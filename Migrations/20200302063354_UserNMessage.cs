@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DotNetChatApp.Migrations
 {
-    public partial class UserAndMessage : Migration
+    public partial class UserNMessage : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,8 +14,7 @@ namespace DotNetChatApp.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     email = table.Column<string>(type: "varchar(128)", nullable: false),
-                    password = table.Column<string>(type: "varchar(255)", nullable: false),
-                    MessageId = table.Column<long>(nullable: true)
+                    password = table.Column<string>(type: "varchar(255)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,36 +59,15 @@ namespace DotNetChatApp.Migrations
                 table: "messages",
                 column: "SenderId",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_users_MessageId",
-                table: "users",
-                column: "MessageId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_users_messages_MessageId",
-                table: "users",
-                column: "MessageId",
-                principalTable: "messages",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_messages_users_RecipientId",
-                table: "messages");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_messages_users_SenderId",
-                table: "messages");
+            migrationBuilder.DropTable(
+                name: "messages");
 
             migrationBuilder.DropTable(
                 name: "users");
-
-            migrationBuilder.DropTable(
-                name: "messages");
         }
     }
 }

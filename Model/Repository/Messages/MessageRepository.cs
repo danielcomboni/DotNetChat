@@ -35,14 +35,18 @@ namespace DotNetChatApp.Model.Repository.Messages
             _context.Messages.Add(entityObject);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(FindById), new { id = entityObject.Id }, entityObject);
+
         }
 
         public async Task<ActionResult<IEnumerable<Message>>> FindAll()
         {
             List<Message> messages = await _context.Messages.ToListAsync();
 
+
+
             foreach (Message message in messages)
             {
+
                 ActionResult<User> aRecipient = await _contextUser.FindById(message.RecipientId);
                 message.Recipient = aRecipient.Value;
 
