@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotNetChatApp.Migrations
 {
     [DbContext(typeof(ChatDbContext))]
-    [Migration("20200301221959_UserAndMessage")]
-    partial class UserAndMessage
+    [Migration("20200302063354_UserNMessage")]
+    partial class UserNMessage
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,17 +68,12 @@ namespace DotNetChatApp.Migrations
                         .HasColumnName("email")
                         .HasColumnType("varchar(128)");
 
-                    b.Property<long?>("MessageId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnName("password")
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MessageId");
 
                     b.ToTable("users");
                 });
@@ -96,13 +91,6 @@ namespace DotNetChatApp.Migrations
                         .HasForeignKey("DotNetChatApp.Model.Entity.Messages.Message", "SenderId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DotNetChatApp.Model.Entity.Users.User", b =>
-                {
-                    b.HasOne("DotNetChatApp.Model.Entity.Messages.Message", "Message")
-                        .WithMany()
-                        .HasForeignKey("MessageId");
                 });
 #pragma warning restore 612, 618
         }

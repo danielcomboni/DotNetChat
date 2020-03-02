@@ -66,17 +66,12 @@ namespace DotNetChatApp.Migrations
                         .HasColumnName("email")
                         .HasColumnType("varchar(128)");
 
-                    b.Property<long?>("MessageId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnName("password")
                         .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MessageId");
 
                     b.ToTable("users");
                 });
@@ -94,13 +89,6 @@ namespace DotNetChatApp.Migrations
                         .HasForeignKey("DotNetChatApp.Model.Entity.Messages.Message", "SenderId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("DotNetChatApp.Model.Entity.Users.User", b =>
-                {
-                    b.HasOne("DotNetChatApp.Model.Entity.Messages.Message", "Message")
-                        .WithMany()
-                        .HasForeignKey("MessageId");
                 });
 #pragma warning restore 612, 618
         }
